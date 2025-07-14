@@ -1,15 +1,17 @@
 package com.nt.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import com.nt.dao.DaoImpl;
+import com.nt.dao.Dao;
 import com.nt.model.Customer;
 
 @Service("serv")
 public class ServiceImp implements Service1 {
 	@Autowired
-	private DaoImpl dao;
+	@Qualifier("db")
+	private Dao dao;
 
 	@Override
 	public String register(Customer cust) throws Exception {

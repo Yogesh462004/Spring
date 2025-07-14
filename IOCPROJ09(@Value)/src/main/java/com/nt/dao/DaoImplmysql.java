@@ -9,11 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.nt.model.Customer;
-@Repository("daooracle")
-public class DaoImpl implements Dao {
+@Repository("daomysql")
+public class DaoImplmysql implements Dao {
 @Autowired	
 private DataSource ds;
-private static final String insert="insert into SPRING_CUST values(CNO_SEQ.NEXTVAL,?,?,?,?)";
+private static final String insert = "INSERT INTO SPRING_CUST(CNAME,BILL,DISCOUNT,AMOUNT) VALUES(?,?,?,?)";
 	@Override
 	public int insert(Customer cust) throws Exception {
 		int count=0;
